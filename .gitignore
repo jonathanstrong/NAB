@@ -9,3 +9,7 @@ nab.egg-info/
 # Generated files
 
 *resultsSummary*
+
+notebooks/.ipynb_checkpoints/
+build/
+dist/
