@@ -49,9 +49,10 @@ class NABData(object):
     def plot(self, key, plot_anomalies = True, figsize=(16, 12)):
         fig = plt.figure(figsize=figsize)
         ax = fig.add_subplot(111)
+        key = self._get_key(key)
         self[key].plot(color = 'b', ax=ax)
         if plot_anomalies:
-            for anomalies in self.labels[self._get_key(key)]:
+            for anomalies in self.labels[key]:
                 ax.axvspan(anomalies[0], anomalies[1], alpha=0.5, facecolor='red')
         ax.set_title(key)
         plt.show()
