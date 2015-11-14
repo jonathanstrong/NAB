@@ -34,13 +34,10 @@ class NABData(object):
                     start = pd.to_datetime(anomalies[0])
                     end = pd.to_datetime(anomalies[1])
                     self.labels[key].append([start, end])
-
-    def keys(self):
-        return self.data.keys()
     
     def plot(self, key, plot_anomalies = True):
         if type(key) != "str":
-            key = self.keys()[key]
+            key = self.data.keys()[key]
         ax = self.data[key].plot(color = 'b')
         if plot_anomalies:
             for anomalies in self.labels[key]:
