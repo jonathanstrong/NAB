@@ -13,3 +13,4 @@ nab.egg-info/
 notebooks/.ipynb_checkpoints/
 build/
 dist/
+*.swp
