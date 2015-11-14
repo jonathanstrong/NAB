@@ -37,17 +37,21 @@ class NABData(object):
                     end = pd.to_datetime(anomalies[1])
                     self.labels[key].append([start, end])
 
+    def _get_key(self, key):
+        if type(key) == int:
+            return self.data.keys()[key]
+        return key
+
+
     def __getitem__(self, key):
-        if type(key) != "str":
-            key = self.data.keys()[key]
-        return self.data[key]
+        return self.data[self._get_key(key)]
     
     def plot(self, key, plot_anomalies = True, figsize=(16, 12)):
         fig = plt.figure(figsize=figsize)
         ax = fig.add_subplot(111)
-        self.data[key].plot(color = 'b', ax=ax)
+        self[key].plot(color = 'b', ax=ax)
         if plot_anomalies:
-            for anomalies in self.labels[key]:
+            for anomalies in self.labels[self._get_key(key)]:
                 ax.axvspan(anomalies[0], anomalies[1], alpha=0.5, facecolor='red')
         ax.set_title(key)
         plt.show()
