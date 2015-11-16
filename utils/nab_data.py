@@ -4,6 +4,7 @@ import matplotlib.pyplot as plt
 import matplotlib
 import os
 import json
+import statsmodels
 from collections import OrderedDict
 
 matplotlib.style.use('ggplot')
@@ -11,11 +12,7 @@ matplotlib.style.use('ggplot')
 class NABData(object):
     data_dir = os.path.join(os.path.dirname(os.path.abspath('.')), 'data')
 
-    def __init__(self):
-        prepath = ''
-        if os.getcwd().split('/')[-1] == 'utils':
-            prepath = '../'
-            
+    def __init__(self):            
         # Get time series data and store it in a dictionary
         self.data = OrderedDict() # keep the order the same for integer-based access
         for root, _, files in os.walk(self.data_dir):
@@ -47,7 +44,7 @@ class NABData(object):
     def __getitem__(self, key):
         return self.data[self._get_key(key)]
     
-    def plot(self, key, plot_anomalies = True, figsize=(16, 12)):
+    def plot(self, key, plot_anomalies = True, figsize=(10, 8)):
         fig = plt.figure(figsize=figsize)
         ax = fig.add_subplot(111)
         key = self._get_key(key) # to get the string key for labels, title
