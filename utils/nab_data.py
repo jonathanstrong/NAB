@@ -4,7 +4,6 @@ import matplotlib.pyplot as plt
 import matplotlib
 import os
 import json
-import statsmodels
 from collections import OrderedDict
 import natural.date, natural.number
 
