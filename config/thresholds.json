@@ -1,4 +1,18 @@
 {
+    "dummy": {
+        "reward_low_FN_rate": {
+            "score": -232.0,
+            "threshold": 0.6250000000000001
+        },
+        "reward_low_FP_rate": {
+            "score": -116.0,
+            "threshold": 0.6250000000000001
+        },
+        "standard": {
+            "score": -116.0,
+            "threshold": 0.6250000000000001
+        }
+    },
     "null": {
         "reward_low_FN_rate": {
             "score": -88.0,

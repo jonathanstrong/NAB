@@ -174,6 +174,7 @@ if __name__ == "__main__":
   from nab.detectors.skyline.skyline_detector import SkylineDetector
   from nab.detectors.random.random_detector import RandomDetector
   from nab.detectors.null.null_detector import NullDetector
+  from nab.detectors.dummy.dummy_detector import DummyDetector
 
   if args.skipConfirmation or checkInputs(args):
     main(args)
